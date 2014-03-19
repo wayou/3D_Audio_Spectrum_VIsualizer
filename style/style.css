@@ -1,0 +1,46 @@
+html, body {
+    margin: 0;
+    font-family: arial, "Microsoft YaHei";
+    background:#000;
+    color: #fefefe;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+#controlPanel {
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+    position: absolute;
+    top: 60px;
+    left: -1px;
+    box-shadow: 0 0 30px #555;
+    z-index: 99;
+    background-color: rgba(39, 40, 34, 0.8);
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+}
+#info {
+    position: absolute;
+    top: 0;
+    height: 20px;
+}
+#action {
+    position: absolute;
+    right: 0;
+    width: 20px;
+    top: 0;
+    background: #111;
+    height: 130px;
+    padding-top: 80px;
+    cursor: pointer;
+}
+#action: hover {
+    color: #ddd;
+    background: #333;
+}
+#upload {
+    width: 180px;
+}
