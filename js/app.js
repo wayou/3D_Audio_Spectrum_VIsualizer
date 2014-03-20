@@ -1,6 +1,6 @@
 /*
  *3d audio spectrum viauslizer built with three.js
- * revision 0.2.0
+ * revision 0.2.1
  *Mar 20,2014 Wayou
  *Licensed under the MIT license
  * view on github:https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/
@@ -83,7 +83,7 @@ Visualizer.prototype = {
         gui = new dat.GUI(); //the control panel
         controls = new function() {
             this.capColor = 0xFFFFFF;
-            this.barColor = 0xFFA401;
+            this.barColor = 0x01FF00;
             this.ambientColor = 0x0c0c0c;
             this.dropSpeed = 0.1;
             this.autoRotate = false;
