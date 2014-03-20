@@ -1,6 +1,6 @@
 /*
  *3d audio spectrum viauslizer built with three.js
- * revision 0.2.5
+ * revision 0.2.6
  *Mar 20,2014 Wayou
  *Licensed under the MIT license
  * view on github:https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/
@@ -430,7 +430,7 @@ Visualizer.prototype = {
                     meter.geometry.computeBoundingBox();
                     height = (meter.geometry.boundingBox.max.y - meter.geometry.boundingBox.min.y) * value;
                     if (height / 2 > cap.position.y) {
-                        cap.position.y = height / 2;
+                        cap.position.y = (height / 2-0.5)>0?(height / 2-0.5):0.5;
                     } else {
                         cap.position.y -= controls.dropSpeed;
                     };
