@@ -1,6 +1,6 @@
 /*
  *3d audio spectrum viauslizer built with three.js
- * revision 0.2.6
+ * revision 0.2.7
  *Mar 20,2014 Wayou
  *Licensed under the MIT license
  * view on github:https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/
@@ -299,6 +299,7 @@ Visualizer.prototype = {
         orbitControls.minDistance = 50;
         orbitControls.maxDistance = 200;
         orbitControls.maxPolarAngle = 1.5;
+        orbitControls.noPan = true;
         clock = new THREE.Clock();
         //add the axes for debug
         //scene.add(axes);
