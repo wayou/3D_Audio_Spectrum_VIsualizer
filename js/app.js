@@ -1,6 +1,6 @@
 /*
  *3d audio spectrum viauslizer built with three.js
- * revision 0.2.2
+ * revision 0.2.4
  *Mar 20,2014 Wayou
  *Licensed under the MIT license
  * view on github:https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/
@@ -13,9 +13,10 @@ window.onload = function() {
     };
 };
 var Visualizer = function() {
+    this.appName='HTML5 3D Audio Spectrum Visualizer';
     this.audioContext;
     this.source;
-    this.url = 'sources/let_it_go.mp3';
+    this.url = 'sources/bbc_sherlock_london.mp3';
     this.file;
     this.infoContainer = document.getElementById('info');
     this.statsContainer = document.getElementById('stats');
@@ -133,7 +134,8 @@ Visualizer.prototype = {
                 that.infoContainer.textContent = 'uploading...';
                 that.file = uploadBtn.files[0];
                 that.fileName = that.file.name;
-                that._readFile(uploadBtn.files[0]);
+                that._readFile(that.file);
+                uploadBtn.value='';//fix for chrome: when uploading the same file this onchange event wont trigger
             };
         };
         //handle drag and drop
@@ -152,7 +154,7 @@ Visualizer.prototype = {
             if (that.status) {
                 that.infoContainer.textContent = 'playing ' + that.fileName;
             } else {
-                that.infoContainer.textContent = 'HTML5 3D Audio Spectrum Visualizer';
+                that.infoContainer.textContent = that.appName;
             };
         }, false);
         dropContainer.addEventListener("drop", function(e) {
@@ -184,7 +186,7 @@ Visualizer.prototype = {
             console.log('there is a file under processing, please wait');
             return;
         };
-        this.fileName = 'let it go'
+        this.fileName = 'bbc_sherlock_london.mp3'
         xhr.open('GET', url, true);
         xhr.responseType = "arraybuffer";
         xhr.onload = function() {
@@ -266,7 +268,7 @@ Visualizer.prototype = {
         } else {
             this.forceStop = false;
             this.status = 0;
-            this.infoContainer.textContent = 'HTML5 3D Audio Spectrum Visualizer';
+            this.infoContainer.textContent = this.appName;
         };
     },
     _prepareScene: function() {
