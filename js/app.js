@@ -1,6 +1,6 @@
 /*
  *3d audio spectrum viauslizer built with three.js
- * revision 0.2.1
+ * revision 0.2.2
  *Mar 20,2014 Wayou
  *Licensed under the MIT license
  * view on github:https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/
