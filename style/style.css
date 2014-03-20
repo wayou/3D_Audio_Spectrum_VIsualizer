@@ -11,6 +11,12 @@ html, body {
 .pace-activity{
     display: none!important;
 }
+a{
+    color: green;
+}
+#playButton{
+    color:yellow;
+}
 #controlPanel {
     width: 200px;
     height: 200px;
