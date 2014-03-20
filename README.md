@@ -1,4 +1,4 @@
-3D_Audio_Spectrum_VIsualizer
+3D Audio Spectrum VIsualizer
 ============================
 
 a 3d audio spectrum viauslizer built with three.js
