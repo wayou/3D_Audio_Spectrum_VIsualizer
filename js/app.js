@@ -267,7 +267,6 @@ Visualizer.prototype = {
             this.forceStop = false;
             return;
         } else {
-            cancelAnimationFrame(this.animationId);
             this.forceStop = false;
             this.status = 0;
             this.infoContainer.textContent = this.appName;
