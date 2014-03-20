@@ -1,10 +1,10 @@
 /*
-*3d audio spectrum viauslizer built with three.js
-* revision 0.1.0
-*Mar 20,2014 Wayou
-*Licensed under the MIT license
-* view on github:https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/
-*/
+ *3d audio spectrum viauslizer built with three.js
+ * revision 0.2.0
+ *Mar 20,2014 Wayou
+ *Licensed under the MIT license
+ * view on github:https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/
+ */
 window.onload = function() {
     var visualizer = new Visualizer();
     visualizer.init();
@@ -34,6 +34,7 @@ var Visualizer = function() {
     this.camera;
     this.orbitControls;
     this.clock;
+    this.orbitControls;
     this.animationId;
 }
 Visualizer.prototype = {
@@ -77,6 +78,7 @@ Visualizer.prototype = {
     _initControls: function() {
         var gui = this.gui,
             controls = this.controls,
+            orbitControls = this.orbitControls,
             scene = this.scene;
         gui = new dat.GUI(); //the control panel
         controls = new function() {
@@ -84,6 +86,7 @@ Visualizer.prototype = {
             this.barColor = 0xFFA401;
             this.ambientColor = 0x0c0c0c;
             this.dropSpeed = 0.1;
+            this.autoRotate = false;
         };
         //initialize the control ui, custom the meter color
         gui.add(controls, 'dropSpeed', 0.1, 0.5);
@@ -97,7 +100,7 @@ Visualizer.prototype = {
                 }
             });
         });
-         gui.addColor(controls, 'barColor').onChange(function(e) {
+        gui.addColor(controls, 'barColor').onChange(function(e) {
             scene.children.forEach(function(child) {
                 if (child.name.indexOf('cube') > -1) {
                     child.material.color.setStyle(e);
@@ -106,6 +109,9 @@ Visualizer.prototype = {
                     child.material.needsUpdate = true;
                 }
             });
+        });
+        gui.add(controls, 'autoRotate').onChange(function(e) {
+            orbitControls.autoRotate = e;
         });
         // gui.addColor(controls, 'meterBottomColor').onChange(function(e) {
         //     // cube.color = new THREE.Color(e);
@@ -146,7 +152,7 @@ Visualizer.prototype = {
             if (that.status) {
                 that.infoContainer.textContent = 'playing ' + that.fileName;
             } else {
-                that.infoContainer.textContent = 'drag file to play';
+                that.infoContainer.textContent = 'HTML5 3D Audio Spectrum Visualizer';
             };
         }, false);
         dropContainer.addEventListener("drop", function(e) {
@@ -260,7 +266,7 @@ Visualizer.prototype = {
         } else {
             this.forceStop = false;
             this.status = 0;
-            this.infoContainer.textContent = 'drag file to play';
+            this.infoContainer.textContent = 'HTML5 3D Audio Spectrum Visualizer';
         };
     },
     _prepareScene: function() {
@@ -287,6 +293,9 @@ Visualizer.prototype = {
             ambientLight = new THREE.AmbientLight(0x0c0c0c),
             //make the camera movable
             orbitControls = new THREE.OrbitControls(camera);
+        orbitControls.minDistance = 50;
+        orbitControls.maxDistance = 200;
+        orbitControls.maxPolarAngle = 1.5;
         clock = new THREE.Clock();
         //add the axes for debug
         //scene.add(axes);
@@ -380,6 +389,7 @@ Visualizer.prototype = {
         this.camera = camera;
         this.orbitControls = orbitControls;
         this.clock = clock;
+        this.orbitControls = orbitControls;
         this._drawVisualizer(scene, render, camera);
     },
     _drawVisualizer: function(scene, render, camera, analyser) {
