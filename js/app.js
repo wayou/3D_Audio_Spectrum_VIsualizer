@@ -1,6 +1,6 @@
 /*
  *3d audio spectrum viauslizer built with three.js
- * revision 0.2.4
+ * revision 0.2.5
  *Mar 20,2014 Wayou
  *Licensed under the MIT license
  * view on github:https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/
@@ -42,6 +42,7 @@ Visualizer.prototype = {
     init: function() { //prepare the audio and the scene
         //fix the browser vendor
         window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
+        window.cancelAnimationFrame = window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame;
         window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
         try {
             this.audioContext = new AudioContext();
