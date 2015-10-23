@@ -3,7 +3,7 @@
  * revision 0.2.7
  *Mar 20,2014 Wayou
  *Licensed under the MIT license
- * view on github:https://github.com/Wayou/3D_Audio_Spectrum_VIsualizer/
+ * view on github:https://github.com/Xia-lj/3D_Audio_Spectrum_VIsualizer
  */
 window.onload = function() {
     var visualizer = new Visualizer();
