@@ -4,7 +4,7 @@
 a 3d audio spectrum viauslizer built with three.js
 
 
-[See it in action](http://wayou.github.io/3D_Audio_Spectrum_VIsualizer/).
+[See it in action](http://xia-lj.github.io/3D_Audio_Spectrum_VIsualizer/).
 
 Screen Capture
 
